@@ -44,6 +44,8 @@ const config = {
           DEFAULT: 'hsl(var(--accent))',
           foreground: 'hsl(var(--accent-foreground))',
         },
+        'accents-2': '#eaeaea',
+        'accents-5': '#666',
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
@@ -52,6 +54,10 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        'geist-success': '#0070f3',
+      },
+      width: {
+        'ds-page-width': '1400px',
       },
       borderRadius: {
         lg: 'var(--radius)',

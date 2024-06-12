@@ -18,7 +18,7 @@ export const generateMetadata = async ({
   };
 };
 
-const BlogPage = async ({ params: { slug } }: PageProps) => {
+const PostPage = async ({ params: { slug } }: PageProps) => {
   const { content } = await getFileMatterResult(slug);
 
   return (
@@ -28,7 +28,7 @@ const BlogPage = async ({ params: { slug } }: PageProps) => {
   );
 };
 
-export default BlogPage;
+export default PostPage;
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), 'content');

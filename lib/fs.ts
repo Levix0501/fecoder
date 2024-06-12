@@ -1,5 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { notFound } from 'next/navigation';
 import { join } from 'path';
 
 export const getDirectoryRoutes = async (
@@ -33,13 +34,17 @@ export const getDirectoryRoutes = async (
 };
 
 export const getFileMatterResult = async (slug: string[]) => {
-  const postPath = join(process.cwd(), 'content', ...slug) + '.md';
-  const contents = await fs.promises.readFile(postPath, 'utf-8');
-  const { data, content } = matter(contents);
-  return {
-    metadata: {
-      title: data.title,
-    },
-    content,
-  };
+  try {
+    const postPath = join(process.cwd(), 'content', ...slug) + '.md';
+    const contents = await fs.promises.readFile(postPath, 'utf-8');
+    const { data, content } = matter(contents);
+    return {
+      metadata: {
+        title: data.title,
+      },
+      content,
+    };
+  } catch (error) {
+    notFound();
+  }
 };
