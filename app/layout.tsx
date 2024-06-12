@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
+import '../styles/colors.css';
 import GoogleAnalytics from '@/components/google-analytics';
 import { siteConfig } from '@/site-config';
 import { NprogressProvider } from '@/components/providers/nprogress-provider';
