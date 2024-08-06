@@ -10,6 +10,17 @@
           "value": "coder.fendking.com"
         }
       ]
+    },
+    {
+      "source": "/",
+      "destination": "https://www.fecoder.cn",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "coder.metaxsire.com"
+        }
+      ]
     }
   ]
 }
