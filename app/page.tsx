@@ -111,6 +111,8 @@ export default function Home() {
     //     </a>
     //   </div>
     // </main>
-    <main></main>
+    <main className="flex h-[calc(100vh-64px)] items-center justify-center text-2xl">
+      网站正在建设中
+    </main>
   );
 }
