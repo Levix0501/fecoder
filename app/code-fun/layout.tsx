@@ -1,13 +1,7 @@
 import { ReactNode } from 'react';
-import Navigation from '../_components/navigation';
 
 const CodeFunLayout = ({ children }: { children: ReactNode }) => {
-  return (
-    <>
-      <Navigation />
-      {children}
-    </>
-  );
+  return <main className="container py-6 lg:py-8">{children}</main>;
 };
 
 export default CodeFunLayout;

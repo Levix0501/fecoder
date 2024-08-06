@@ -1,9 +1,8 @@
 'use client';
 
-import type { MDXComponents } from 'mdx/types';
+import { useMDXComponent } from 'next-contentlayer2/hooks';
 import { cn } from '../lib/utils';
 import { CopyButton } from './copy-button';
-import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 const components = {
   pre: ({ className, ...props }: React.HTMLAttributes<HTMLPreElement>) => {
@@ -44,7 +43,7 @@ export function Mdx({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (
-    <div className="container px-3 prose">
+    <div className="prose max-w-screen-lg mx-auto">
       <Component components={components} />
     </div>
   );
