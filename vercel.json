@@ -4,7 +4,12 @@
       "source": "/:path*",
       "destination": "https://www.fecoder.cn/:path*",
       "permanent": true,
-      "basePath": "coder.fendking.com"
+      "has": [
+        {
+          "type": "host",
+          "value": "coder.fendking.com"
+        }
+      ]
     }
   ]
 }
