@@ -83,14 +83,14 @@ date: 2024-08-06
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.outputEncoding = THREE.sRGBEncoding;
       const bakedTexture = textureLoader.load(
-        'https://rawcdn.githack.com/ricardoolivaalonso/ThreeJS-Room13/47b05e2db4e49eec33d63729e920894a906cb693/static/baked.jpg'
+        'https://www.fecoder.cn/_next/code-fun/baked.jpg'
       );
       bakedTexture.flipY = false;
       bakedTexture.encoding = THREE.sRGBEncoding;
       const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture });
       const loader = new THREE.GLTFLoader();
       loader.load(
-        'https://rawcdn.githack.com/ricardoolivaalonso/ThreeJS-Room13/47b05e2db4e49eec33d63729e920894a906cb693/static/model.glb',
+        'https://www.fecoder.cn/_next/code-fun/model.glb',
         (gltf) => {
           const model = gltf.scene;
           model.traverse((child) => (child.material = bakedMaterial));
