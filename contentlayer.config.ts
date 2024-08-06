@@ -7,6 +7,7 @@ export const CodeFun = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    date: { type: 'string', required: true },
   },
   computedFields: {
     slug: {

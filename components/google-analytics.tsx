@@ -1,11 +1,11 @@
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics as _GoogleAnalytics } from '@next/third-parties/google';
 
 export const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
 
 const GoogleAnalytics = () => {
   return (
     process.env.NODE_ENV === 'production' &&
-    GTM_ID && <GoogleTagManager gtmId={GTM_ID} />
+    GTM_ID && <_GoogleAnalytics gaId={GTM_ID} />
   );
 };
 

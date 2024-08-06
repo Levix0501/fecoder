@@ -10,7 +10,7 @@ interface CodeFunPageProps {
 }
 
 function getCodeFunDocFromSlug(slug: CodeFunPageProps['params']['slug']) {
-  if (['preview', 'doc'].includes(slug[slug.length - 1])) {
+  if (slug.length && ['preview', 'doc'].includes(slug[slug.length - 1])) {
     slug = slug.slice(0, slug.length - 1);
   }
   const doc = allCodeFuns.find((doc) => doc.slugAsParams === slug.join('/'));
@@ -42,7 +42,6 @@ export async function generateStaticParams(): Promise<
 
 const CodeFunPage = ({ params: { slug } }: CodeFunPageProps) => {
   const doc = getCodeFunDocFromSlug(slug);
-
   if (!doc) {
     notFound();
   }
@@ -50,9 +49,6 @@ const CodeFunPage = ({ params: { slug } }: CodeFunPageProps) => {
   if (slug[slug.length - 1] === 'doc') {
     return <Mdx code={doc.body.code} />;
   }
-
-  //
-  //     <div className="container px-3 prose"></div>
 
   return (
     <iframe
