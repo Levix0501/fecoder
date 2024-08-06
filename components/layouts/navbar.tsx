@@ -3,12 +3,12 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navArr = [
-  {
-    id: 'basic',
-    label: '必知必会',
-    href: '/basic/javascript/prototype',
-  },
+const navArr: any[] = [
+  // {
+  //   id: 'basic',
+  //   label: '必知必会',
+  //   href: '/basic/javascript/prototype',
+  // },
 ];
 
 export const Navbar = () => {
