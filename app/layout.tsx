@@ -38,7 +38,7 @@ export default function RootLayout({
           {children}
         </NprogressProvider>
       </body>
-      <GoogleAnalytics />
+      {/* <GoogleAnalytics /> */}
     </html>
   );
 }

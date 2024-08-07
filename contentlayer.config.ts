@@ -1,5 +1,7 @@
 // contentlayer.config.ts
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
+import path from 'path';
+import fs from 'fs';
 
 export const CodeFun = defineDocumentType(() => ({
   name: 'CodeFun',
@@ -26,4 +28,26 @@ export const CodeFun = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: './content',
   documentTypes: [CodeFun],
+  onSuccess: async (getData) => {
+    const data = await getData();
+    console.log(data.allCodeFuns.length);
+    const publicDir = path.join(process.cwd(), 'public', 'code-fun');
+    await Promise.all(
+      data.allCodeFuns.map(async (doc) => {
+        const filePath = path.join(publicDir, `${doc.slugAsParams}.html`);
+        // @ts-ignore
+        const regex = /```html(.*?)```/s;
+        const match = doc.body.raw.match(regex);
+        if (match) {
+          const content = match[1].trim();
+          try {
+            fs.writeFileSync(filePath, content);
+            console.log(`Generated HTML file: ${filePath}`);
+          } catch (error) {
+            console.log(`error: ${error}`);
+          }
+        }
+      })
+    );
+  },
 });

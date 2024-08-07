@@ -29,8 +29,8 @@
       input {
         color: var(--fg);
         font: 1em/1.5 sans-serif;
-        transition: background-color var(--trans-dur) var(--trans-timing1),
-          color var(--trans-dur) var(--trans-timing1);
+        transition: background-color var(--trans-dur) var(--trans-timing1), color
+            var(--trans-dur) var(--trans-timing1);
       }
 
       body {
@@ -81,8 +81,8 @@
       }
       .switch__emoji:before {
         background-color: #f2c40d;
-        box-shadow: -0.25em -0.25em 0.25em #c29d0a inset,
-          0.1875em 0.1875em 0.25em #f9e286 inset;
+        box-shadow: -0.25em -0.25em 0.25em #c29d0a inset, 0.1875em 0.1875em
+            0.25em #f9e286 inset;
       }
       .switch__emoji:after {
         box-shadow: 0 0 0.125em 0.0625em rgba(245, 208, 61, 0.5) inset;
@@ -105,12 +105,14 @@
         left: 50%;
         width: 0.25em;
         height: 0.25em;
-        transform: translate(-50%, -50%) rotateY(-22.5deg) translateZ(0.5em)
-          rotateZ(45deg);
+        transform: translate(-50%, -50%) rotateY(-22.5deg) translateZ(0.5em) rotateZ(
+            45deg
+          );
       }
       .switch__emoji-eye + .switch__emoji-eye {
-        transform: translate(-50%, -50%) rotateY(22.5deg) translateZ(0.5em)
-          rotateZ(45deg);
+        transform: translate(-50%, -50%) rotateY(22.5deg) translateZ(0.5em) rotateZ(
+            45deg
+          );
       }
       .switch__emoji-mouth {
         background-image: radial-gradient(
@@ -118,17 +120,15 @@
             #f2180d 20%,
             #f5463d 33%,
             rgba(245, 70, 61, 0) 35%
-          ),
-          radial-gradient(
+          ), radial-gradient(
             100% 100% at 75% 113%,
             black 26%,
             rgba(0, 0, 0, 0) 35%
-          ),
-          linear-gradient(
-            rgba(0, 0, 0, 0) 50%,
-            black 50% 55%,
-            hsl(var(--hue), 10%, 10%) 65%
-          );
+          ), linear-gradient(rgba(0, 0, 0, 0) 50%, black 50% 55%, hsl(
+                var(--hue),
+                10%,
+                10%
+              ) 65%);
         top: 50%;
         left: 50%;
         width: 0.5em;
@@ -164,10 +164,10 @@
       .switch__input {
         background-color: hsl(var(--hue), 10%, 80%);
         border-radius: 0.75em;
-        box-shadow: 0.0625em 0.0625em 0.0625em white inset,
-          -0.0625em -0.0625em 0.0625em hsl(var(--hue), 10%, 80%) inset,
-          0 0 0 0.125em hsl(var(--hue), 10%, 90%) inset,
-          0.25em 0.25em 0.125em rgba(0, 0, 0, 0.3) inset,
+        box-shadow: 0.0625em 0.0625em 0.0625em white inset, -0.0625em -0.0625em
+            0.0625em hsl(var(--hue), 10%, 80%) inset,
+          0 0 0 0.125em hsl(var(--hue), 10%, 90%) inset, 0.25em 0.25em 0.125em
+            rgba(0, 0, 0, 0.3) inset,
           0.0625em 0.0625em 0.0625em rgba(0, 0, 0, 0.3);
         cursor: pointer;
         display: block;
@@ -175,8 +175,8 @@
         height: 1.5em;
         -webkit-appearance: none;
         appearance: none;
-        transition: background-color var(--trans-dur) var(--trans-timing1),
-          box-shadow var(--trans-dur) var(--trans-timing1);
+        transition: background-color var(--trans-dur) var(--trans-timing1), box-shadow
+            var(--trans-dur) var(--trans-timing1);
       }
       .switch__input:checked {
         background-color: #0ac213;
@@ -232,8 +232,8 @@
           background-color: hsl(var(--hue), 10%, 20%);
           box-shadow: 0.0625em 0.0625em 0.0625em hsl(var(--hue), 10%, 25%) inset,
             -0.0625em -0.0625em 0.0625em hsl(var(--hue), 10%, 20%) inset,
-            0 0 0 0.125em hsl(var(--hue), 10%, 30%) inset,
-            0.25em 0.25em 0.125em rgba(0, 0, 0, 0.3) inset,
+            0 0 0 0.125em hsl(var(--hue), 10%, 30%) inset, 0.25em 0.25em 0.125em
+              rgba(0, 0, 0, 0.3) inset,
             0.0625em 0.0625em 0.0625em rgba(0, 0, 0, 0.3);
         }
       }
