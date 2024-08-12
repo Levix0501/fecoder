@@ -44,20 +44,20 @@ date: 2024-08-13
             element.__lastTime = currTime + timeToCall;
           };
         })();
-      window.isDevice = false;
-      // /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
-      //   (
-      //     navigator.userAgent ||
-      //     navigator.vendor ||
-      //     window.opera
-      //   ).toLowerCase()
-      // );
+      window.isDevice =
+        /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+          (
+            navigator.userAgent ||
+            navigator.vendor ||
+            window.opera
+          ).toLowerCase()
+        );
       var loaded = false;
       var init = function () {
         if (loaded) return;
         loaded = true;
         var mobile = window.isDevice;
-        var koef = mobile ? 1.5 : 1.5;
+        var koef = mobile ? 1.5 : 1;
         var canvas = document.getElementById('heart');
         var ctx = canvas.getContext('2d');
         var width = (canvas.width = koef * innerWidth);
@@ -88,10 +88,10 @@ date: 2024-08-13
           ctx.fillRect(0, 0, width, height);
         });
 
-        var traceCount = mobile ? 20 : 50;
+        var traceCount = 50;
         var pointsOrigin = [];
         var i;
-        var dr = mobile ? 0.3 : 0.1;
+        var dr = 0.1;
         for (i = 0; i < Math.PI * 2; i += dr)
           pointsOrigin.push(
             scaleAndTranslate(heartPosition(i), 105, 6.5, 0, 0)
