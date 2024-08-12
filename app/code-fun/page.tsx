@@ -10,7 +10,10 @@ const CodeFunPage = () => {
   return (
     <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {allCodeFuns
-        .filter((doc) => dayjs(doc.date).valueOf() <= dayjs().valueOf())
+        .filter(
+          (doc) =>
+            dayjs(doc.date).valueOf() <= dayjs().valueOf() + 12 * 3600 * 1000
+        )
         .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
         .map((e) => (
           <CardLink key={e._id} href={`/code-fun/${e.slugAsParams}`}>
