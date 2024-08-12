@@ -1,11 +1,11 @@
+import GoogleAnalytics from '@/components/google-analytics';
+import Footer from '@/components/layouts/footer';
+import { HeaderBar } from '@/components/layouts/header-bar';
+import { NprogressBar } from '@/components/nprogress-bar';
+import { siteConfig } from '@/site-config';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
-import GoogleAnalytics from '@/components/google-analytics';
-import { siteConfig } from '@/site-config';
-import { NprogressProvider } from '@/components/providers/nprogress-provider';
-import { HeaderBar } from '@/components/layouts/header-bar';
-import Footer from '@/components/layouts/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -34,11 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <NprogressProvider>
-          <HeaderBar />
-          {children}
-          <Footer />
-        </NprogressProvider>
+        <HeaderBar />
+        {children}
+        <Footer />
+        <NprogressBar />
       </body>
       <GoogleAnalytics />
     </html>

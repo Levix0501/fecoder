@@ -5,14 +5,16 @@ import { cn } from '@/lib/utils';
 
 export interface CardLinkProps extends React.ComponentProps<typeof Link> {
   children: ReactNode;
+  className?: string;
 }
 
-const CardLink = (props: CardLinkProps) => {
+const CardLink = ({ className, ...props }: CardLinkProps) => {
   return (
     <Link
       className={cn(
         'bg-gray-0 group block space-y-2 rounded-md transition-shadow duration-300 overflow-hidden',
-        styles['card-link']
+        styles['card-link'],
+        className
       )}
       {...props}
     >

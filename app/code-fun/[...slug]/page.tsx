@@ -4,6 +4,7 @@ import { absoluteUrl } from '@/lib/utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import DetailLayout from '../_components/detail-layout';
+import dayjs from 'dayjs';
 
 interface CodeFunDetailPageProps {
   params: {
@@ -82,6 +83,7 @@ export async function generateStaticParams(): Promise<
 }
 
 const CodeFunDetailPage = ({ params: { slug } }: CodeFunDetailPageProps) => {
+  console.log(slug);
   const doc = getCodeFunDocFromSlug(slug);
 
   if (!doc) {
