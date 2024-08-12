@@ -1,0 +1,24 @@
+import Link, { LinkProps } from 'next/link';
+import { ReactNode } from 'react';
+import styles from './card-link.module.scss';
+import { cn } from '@/lib/utils';
+
+export interface CardLinkProps extends React.ComponentProps<typeof Link> {
+  children: ReactNode;
+}
+
+const CardLink = (props: CardLinkProps) => {
+  return (
+    <Link
+      className={cn(
+        'bg-gray-0 group block space-y-2 rounded-md transition-shadow duration-300 overflow-hidden',
+        styles['card-link']
+      )}
+      {...props}
+    >
+      {props.children}
+    </Link>
+  );
+};
+
+export default CardLink;

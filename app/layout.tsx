@@ -5,6 +5,7 @@ import GoogleAnalytics from '@/components/google-analytics';
 import { siteConfig } from '@/site-config';
 import { NprogressProvider } from '@/components/providers/nprogress-provider';
 import { HeaderBar } from '@/components/layouts/header-bar';
+import Footer from '@/components/layouts/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -36,9 +37,10 @@ export default function RootLayout({
         <NprogressProvider>
           <HeaderBar />
           {children}
+          <Footer />
         </NprogressProvider>
       </body>
-      {/* <GoogleAnalytics /> */}
+      <GoogleAnalytics />
     </html>
   );
 }

@@ -90,7 +90,7 @@ const CodeFunDetailPage = ({ params: { slug } }: CodeFunDetailPageProps) => {
   }
 
   return (
-    <DetailLayout title={doc.title}>
+    <DetailLayout title={doc.title} path={`/code-fun/${slug.join('/')}`}>
       {slug[slug.length - 1] === 'doc' ? (
         <Mdx code={doc.body.code} />
       ) : (

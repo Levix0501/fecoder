@@ -9,7 +9,7 @@ export const NprogressProvider = ({
   return (
     <>
       {children}
-      <AppProgressBar />
+      <AppProgressBar color="hsl(var(--primary))" />
     </>
   );
 };

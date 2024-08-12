@@ -2,6 +2,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 import path from 'path';
 import fs from 'fs';
+import highlight from 'rehype-highlight';
 
 export const CodeFun = defineDocumentType(() => ({
   name: 'CodeFun',
@@ -28,6 +29,8 @@ export const CodeFun = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: './content',
   documentTypes: [CodeFun],
+  mdx: { rehypePlugins: [highlight] },
+
   onSuccess: async (getData) => {
     const data = await getData();
     console.log(data.allCodeFuns.length);

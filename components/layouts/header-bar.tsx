@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { Logo } from './logo';
 import { siteConfig } from '@/site-config';
 import { Navbar } from './navbar';
+import Logo from '../logo';
 
 export const HeaderBar = () => {
   return (
