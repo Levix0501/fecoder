@@ -14,6 +14,8 @@ export const CodeFun = defineDocumentType(() => ({
     description: { type: 'string', required: true },
     keywords: { type: 'string', required: true },
     date: { type: 'string', required: true },
+    previewWidth: { type: 'number' },
+    previewHeight: { type: 'number' },
   },
   computedFields: {
     slug: {

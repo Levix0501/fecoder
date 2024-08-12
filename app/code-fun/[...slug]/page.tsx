@@ -83,7 +83,6 @@ export async function generateStaticParams(): Promise<
 }
 
 const CodeFunDetailPage = ({ params: { slug } }: CodeFunDetailPageProps) => {
-  console.log(slug);
   const doc = getCodeFunDocFromSlug(slug);
 
   if (!doc) {
@@ -95,7 +94,15 @@ const CodeFunDetailPage = ({ params: { slug } }: CodeFunDetailPageProps) => {
       {slug[slug.length - 1] === 'doc' ? (
         <Mdx code={doc.body.code} />
       ) : (
-        <div className="w-full pb-[56%] relative rounded-md overflow-hidden">
+        <div
+          className="w-full relative rounded-md overflow-hidden"
+          style={{
+            paddingBottom:
+              doc.previewHeight && doc.previewWidth
+                ? `${(doc.previewHeight / doc.previewWidth) * 100}%`
+                : '56%',
+          }}
+        >
           <iframe
             src={`/code-fun/${slug[0]}.html`}
             className="absolute w-full h-full"
