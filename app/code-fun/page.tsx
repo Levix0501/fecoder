@@ -12,7 +12,7 @@ const CodeFunPage = () => {
       {allCodeFuns
         .filter(
           (doc) =>
-            dayjs(doc.date).valueOf() <= dayjs().valueOf() + 12 * 3600 * 1000
+            dayjs(doc.date).valueOf() <= dayjs().valueOf() + 4 * 3600 * 1000
         )
         .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
         .map((e) => (
