@@ -3,6 +3,7 @@ import { defineDocumentType, makeSource } from 'contentlayer2/source-files';
 import path from 'path';
 import fs from 'fs';
 import highlight from 'rehype-highlight';
+import { visit } from 'unist-util-visit';
 
 export const CodeFun = defineDocumentType(() => ({
   name: 'CodeFun',
@@ -29,8 +30,22 @@ export const CodeFun = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: './content',
   documentTypes: [CodeFun],
-  mdx: { rehypePlugins: [highlight] },
-
+  mdx: {
+    rehypePlugins: [
+      () => (tree) => {
+        visit(tree, (node) => {
+          if (node?.type === 'element' && node?.tagName === 'pre') {
+            const [codeEl] = node.children;
+            if (codeEl.tagName !== 'code') {
+              return;
+            }
+            node.properties['__raw__'] = codeEl.children?.[0]?.value;
+          }
+        });
+      },
+      highlight,
+    ],
+  },
   onSuccess: async (getData) => {
     const data = await getData();
     console.log(data.allCodeFuns.length);

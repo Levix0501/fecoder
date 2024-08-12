@@ -1,9 +1,9 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { CheckIcon, ClipboardIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button, ButtonProps } from './ui/button';
+import { cn } from '@/lib/utils';
 
 export async function copyToClipboardWithMeta(value: string) {
   navigator.clipboard.writeText(value);

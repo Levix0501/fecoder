@@ -1,10 +1,9 @@
 import { allCodeFuns } from '@/.contentlayer/generated';
-import { notFound } from 'next/navigation';
-import Navigation from '../_components/navigation';
 import { Mdx } from '@/components/mdx-components';
-import DetailLayout from '../_components/detail-layout';
-import { Metadata } from 'next';
 import { absoluteUrl } from '@/lib/utils';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import DetailLayout from '../_components/detail-layout';
 
 interface CodeFunDetailPageProps {
   params: {
