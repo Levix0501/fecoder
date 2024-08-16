@@ -23,7 +23,7 @@ const CodeFunPage = () => {
                 fill
                 alt={e.title}
                 className="object-cover"
-                sizes="512px"
+                sizes="650px"
               />
             </div>
 

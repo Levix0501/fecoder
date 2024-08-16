@@ -3,7 +3,9 @@ import remarkGfm from 'remark-gfm';
 import { createContentlayerPlugin } from 'next-contentlayer2';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  output: 'standalone',
+};
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,

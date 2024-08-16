@@ -94,20 +94,15 @@ const CodeFunDetailPage = ({ params: { slug } }: CodeFunDetailPageProps) => {
       {slug[slug.length - 1] === 'doc' ? (
         <Mdx code={doc.body.code} />
       ) : (
-        <div
-          className="w-full relative rounded-md overflow-hidden"
-          style={{
-            paddingBottom:
-              doc.previewHeight && doc.previewWidth
-                ? `${(doc.previewHeight / doc.previewWidth) * 100}%`
-                : '56%',
-          }}
-        >
-          <iframe
-            src={`/code-fun/${slug[0]}.html`}
-            className="absolute w-full h-full"
-          ></iframe>
-        </div>
+        <>
+          {!doc.mobile && <p className="text-slate-400">建议在电脑端预览</p>}
+          <div className="w-full pb-[56%] relative rounded-md overflow-hidden">
+            <iframe
+              src={`/code-fun/${slug[0]}.html`}
+              className="absolute w-full h-full"
+            ></iframe>
+          </div>
+        </>
       )}
     </DetailLayout>
   );
