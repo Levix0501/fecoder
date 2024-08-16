@@ -2,8 +2,8 @@
 FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6 AS dependencies
 # RUN apt-get update && apt-get install -y libc6
 WORKDIR /fecoder
-COPY ./fecoder/package.json ./
-COPY ./fecoder/pnpm-lock.yaml ./
+COPY ./package.json ./
+COPY ./pnpm-lock.yaml ./
 RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 
@@ -13,7 +13,7 @@ RUN pnpm i
 FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6 AS builder
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
-COPY ./fecoder .
+COPY . .
 RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm build 
