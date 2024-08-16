@@ -794,34 +794,196 @@ export interface NavPart {
   items?: NavItem[];
   sections: NavSection[];
 }
-
 export const NAV_DATA: NavPart[] = [
   {
     title: 'React 生态',
     items: [
       {
         title: 'React',
-        desc: '用于构建用户界面的 JavaScript 库',
-        icon: 'https://zh-hans.reactjs.org/favicon.ico',
-        link: 'https://zh-hans.reactjs.org',
+        desc: '用于构建 Web 和原生应用交互界面的 JavaScript 库',
+        icon: 'react.png',
+        link: 'https://react.dev/',
       },
     ],
     sections: [
       {
-        title: 'React 状态管理',
+        title: 'React 框架',
         items: [
           {
-            title: 'React',
-            desc: '用于构建用户界面的 JavaScript 库',
-            icon: 'https://zh-hans.reactjs.org/favicon.ico',
-            link: 'https://zh-hans.reactjs.org',
+            title: 'Next.js',
+            desc: '用于构建 Web 的 React 框架',
+            icon: 'nextjs.png',
+            link: 'https://nextjs.org/',
+          },
+          // {
+          //   title: 'Gatsby',
+          //   desc: '基于 React 的静态站点生成框架',
+          //   icon: 'https://www.gatsbyjs.com/favicon.ico',
+          //   link: 'https://www.gatsbyjs.com/',
+          // },
+          {
+            title: 'React Native',
+            desc: '用于构建移动端原生应用的 React 框架',
+            icon: 'react.png',
+            link: 'https://reactnative.dev/',
           },
         ],
       },
+      // {
+      //   title: 'React 状态管理',
+      //   items: [
+      //     {
+      //       title: 'Redux',
+      //       desc: '流行的 JavaScript 应用状态管理库',
+      //       icon: 'https://redux.js.org/img/favicon/favicon.ico',
+      //       link: 'https://redux.js.org/',
+      //     },
+      //     {
+      //       title: 'MobX',
+      //       desc: '简单的状态管理解决方案',
+      //       icon: 'https://mobx.js.org/assets/mobx.png',
+      //       link: 'https://mobx.js.org/',
+      //     },
+      //     {
+      //       title: 'Recoil',
+      //       desc: '用于 React 应用的状态管理库',
+      //       icon: 'https://recoiljs.org/img/favicon.ico',
+      //       link: 'https://recoiljs.org/',
+      //     },
+      //   ],
+      // },
+      // {
+      //   title: 'React 组件库',
+      //   items: [
+      //     {
+      //       title: 'Material-UI',
+      //       desc: '基于 React 的 Material Design 组件库',
+      //       icon: 'https://mui.com/static/favicon.ico',
+      //       link: 'https://mui.com/',
+      //     },
+      //     {
+      //       title: 'Ant Design',
+      //       desc: '用于企业级产品的 React UI 组件库',
+      //       icon: 'https://ant.design/favicon.ico',
+      //       link: 'https://ant.design/',
+      //     },
+      //     {
+      //       title: 'Chakra UI',
+      //       desc: '简洁、模块化的 React 组件库',
+      //       icon: 'https://chakra-ui.com/favicon.ico',
+      //       link: 'https://chakra-ui.com/',
+      //     },
+      //   ],
+      // },
     ],
   },
   {
     title: 'Vue 生态',
-    sections: [],
+    items: [
+      {
+        title: 'Vue.js',
+        desc: '用于构建用户界面的渐进式 JavaScript 框架',
+        icon: 'vue.svg',
+        link: 'https://vuejs.org/',
+      },
+    ],
+    sections: [
+      // {
+      //   title: 'Vue 状态管理',
+      //   items: [
+      //     {
+      //       title: 'Vuex',
+      //       desc: 'Vue.js 的状态管理模式与库',
+      //       icon: 'https://vuex.vuejs.org/favicon.ico',
+      //       link: 'https://vuex.vuejs.org/',
+      //     },
+      //     {
+      //       title: 'Pinia',
+      //       desc: 'Vue 的轻量级状态管理库',
+      //       icon: 'https://pinia.vuejs.org/logo.svg',
+      //       link: 'https://pinia.vuejs.org/',
+      //     },
+      //   ],
+      // },
+      // {
+      //   title: 'Vue 路由',
+      //   items: [
+      //     {
+      //       title: 'Vue Router',
+      //       desc: 'Vue.js 官方的路由管理器',
+      //       icon: 'https://router.vuejs.org/logo.png',
+      //       link: 'https://router.vuejs.org/',
+      //     },
+      //   ],
+      // },
+      // {
+      //   title: 'Vue 组件库',
+      //   items: [
+      //     {
+      //       title: 'Element UI',
+      //       desc: '基于 Vue 2.0 的桌面端组件库',
+      //       icon: 'https://element.eleme.io/favicon.ico',
+      //       link: 'https://element.eleme.io/',
+      //     },
+      //     {
+      //       title: 'Vuetify',
+      //       desc: '用于 Vue.js 的 Material Design 组件库',
+      //       icon: 'https://vuetifyjs.com/favicon.ico',
+      //       link: 'https://vuetifyjs.com/',
+      //     },
+      //   ],
+      // },
+    ],
   },
+  // {
+  //   title: '工具与环境',
+  //   sections: [
+  //     {
+  //       title: '包管理工具',
+  //       items: [
+  //         {
+  //           title: 'npm',
+  //           desc: 'JavaScript 包管理工具',
+  //           icon: 'https://www.npmjs.com/static/images/touch-icons/favicon-16x16.png',
+  //           link: 'https://www.npmjs.com/',
+  //         },
+  //         {
+  //           title: 'Yarn',
+  //           desc: '快速、可靠、安全的依赖管理工具',
+  //           icon: 'https://yarnpkg.com/favicon-32x32.png',
+  //           link: 'https://yarnpkg.com/',
+  //         },
+  //         {
+  //           title: 'pnpm',
+  //           desc: '高效的 JavaScript 包管理工具',
+  //           icon: 'https://pnpm.io/img/favicon.png',
+  //           link: 'https://pnpm.io/',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: '构建工具',
+  //       items: [
+  //         {
+  //           title: 'Webpack',
+  //           desc: '现代 JavaScript 应用的静态模块打包工具',
+  //           icon: 'https://webpack.js.org/icon-square-small.85ba630cf0c5f29ae3e3.svg',
+  //           link: 'https://webpack.js.org/',
+  //         },
+  //         {
+  //           title: 'Vite',
+  //           desc: '下一代前端工具链',
+  //           icon: 'https://vitejs.dev/logo.svg',
+  //           link: 'https://vitejs.dev/',
+  //         },
+  //         {
+  //           title: 'Rollup',
+  //           desc: '用于打包 JavaScript 库的模块打包工具',
+  //           icon: 'https://rollupjs.org/favicon.png',
+  //           link: 'https://rollupjs.org/',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];

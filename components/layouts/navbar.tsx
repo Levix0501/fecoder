@@ -4,17 +4,17 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navArr: any[] = [
-  // {
-  //   slug: 'nav',
-  //   label: '前端导航',
-  //   href: '/nav',
-  // },
-  // {
-  //   slug: 'code-fun',
-  //   label: '趣玩代码',
-  //   href: '/code-fun',
-  // },
+const navArr = [
+  {
+    slug: 'nav',
+    label: '前端导航',
+    href: '/nav',
+  },
+  {
+    slug: 'code-fun',
+    label: '趣玩前端',
+    href: '/code-fun',
+  },
   // {
   //   id: 'basic',
   //   label: '必知必会',
@@ -25,7 +25,7 @@ const navArr: any[] = [
 export const Navbar = () => {
   const slugs = usePathname().split('/');
   return (
-    <div>
+    <div className="flex items-center gap-6">
       {navArr.map(({ slug, href, label }) => {
         const isActive = slugs.includes(slug);
         return (
