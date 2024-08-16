@@ -1,5 +1,5 @@
 
-FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6 AS dependencies
+FROM registry.cn-hangzhou.aliyuncs.com/levix/slim AS dependencies
 # RUN apt-get update && apt-get install -y libc6
 WORKDIR /fecoder
 COPY ./package.json ./
@@ -10,7 +10,7 @@ RUN npm install pnpm -g
 RUN pnpm i 
 
 
-FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6 AS builder
+FROM registry.cn-hangzhou.aliyuncs.com/levix/slim AS builder
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
@@ -19,7 +19,7 @@ RUN npm install pnpm -g
 RUN pnpm build 
 
 
-FROM anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/node:16.17.1-nslt-8.6 AS runner
+FROM registry.cn-hangzhou.aliyuncs.com/levix/slim AS runner
 WORKDIR /fecoder
 ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=builder /fecoder/public ./standalone/public
