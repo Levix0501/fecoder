@@ -1,24 +1,24 @@
 
-FROM registry.cn-hangzhou.aliyuncs.com/levix/slim:latest AS dependencies
+FROM node:slim AS dependencies
 # RUN apt-get update && apt-get install -y libc6
 WORKDIR /fecoder
 COPY ./package.json ./
 COPY ./pnpm-lock.yaml ./
-# RUN npm config set registry https://registry.npmmirror.com/
+RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm i 
 
 
-FROM registry.cn-hangzhou.aliyuncs.com/levix/slim:latest AS builder
+FROM node:slim AS builder
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
-# RUN npm config set registry https://registry.npmmirror.com/
+RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm build 
 
 
-FROM registry.cn-hangzhou.aliyuncs.com/levix/slim:latest AS runner
+FROM node:slim AS runner
 WORKDIR /fecoder
 ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=builder /fecoder/public ./standalone/public
