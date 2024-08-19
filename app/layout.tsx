@@ -6,6 +6,7 @@ import { siteConfig } from '@/site-config';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
+import BaiduAnalytics from '@/components/baidu-analytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <NprogressBar />
       </body>
       <GoogleAnalytics />
+      <BaiduAnalytics />
     </html>
   );
 }
