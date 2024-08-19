@@ -1,5 +1,5 @@
 
-FROM https://qpdkdb2x.mirror.aliyuncs.com/node:slim AS dependencies
+FROM node:slim AS dependencies
 # RUN apt-get update && apt-get install -y libc6
 WORKDIR /fecoder
 COPY ./package.json ./
@@ -9,7 +9,7 @@ RUN npm install pnpm -g
 RUN pnpm i 
 
 
-FROM https://qpdkdb2x.mirror.aliyuncs.com/node:slim AS builder
+FROM node:slim AS builder
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
@@ -18,7 +18,7 @@ RUN npm install pnpm -g
 RUN pnpm build 
 
 
-FROM https://qpdkdb2x.mirror.aliyuncs.com/node:slim AS runner
+FROM node:slim AS runner
 WORKDIR /fecoder
 ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=builder /fecoder/public ./standalone/public
