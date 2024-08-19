@@ -1,6 +1,8 @@
+import Script from 'next/script';
+
 const BaiduAnalytics = () => {
   return (
-    <script>
+    <Script id="bdtj">
       {`var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -8,7 +10,7 @@ const BaiduAnalytics = () => {
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();`}
-    </script>
+    </Script>
   );
 };
 
