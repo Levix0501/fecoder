@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import BaiduAnalytics from '@/components/baidu-analytics';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -34,6 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <BaiduAnalytics />
+      </head>
       <body className={inter.className}>
         <HeaderBar />
         {children}
@@ -41,7 +45,6 @@ export default function RootLayout({
         <NprogressBar />
       </body>
       <GoogleAnalytics />
-      <BaiduAnalytics />
     </html>
   );
 }
