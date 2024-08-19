@@ -4,7 +4,7 @@ FROM registry.cn-hangzhou.aliyuncs.com/levix/slim AS dependencies
 WORKDIR /fecoder
 COPY ./package.json ./
 COPY ./pnpm-lock.yaml ./
-RUN npm config set registry https://registry.npmmirror.com/
+# RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm i 
 
@@ -13,7 +13,7 @@ FROM registry.cn-hangzhou.aliyuncs.com/levix/slim AS builder
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
-RUN npm config set registry https://registry.npmmirror.com/
+# RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm build 
 
