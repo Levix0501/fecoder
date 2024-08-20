@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 
 import Image from 'next/image';
 
-export const revalidate = 4 * 3600;
+export const revalidate = 4 * 3600; //
 
 const CodeFunPage = () => {
   return (
