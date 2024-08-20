@@ -48,7 +48,7 @@ export function MoreMenu() {
               }}
             >
               <Gift className="mr-2 h-4 w-4" />
-              <span>赞助本站</span>
+              <span>赞助本站 1 元</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>
