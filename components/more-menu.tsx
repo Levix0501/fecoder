@@ -55,11 +55,11 @@ export function MoreMenu() {
       </DropdownMenu>
 
       <Dialog onOpenChange={(e) => setIsOpen(e)} open={isOpen}>
-        <DialogContent className="focus-visible:ring-transparent">
+        <DialogContent className="focus-visible:outline-transparent">
           {type === 'wechat' && (
             <div className="relative pb-[36.5%]">
               <Image
-                src="/contact/wechat.png"
+                src="/contact/wechat-gzh.png"
                 fill
                 alt="前端嘛-微信公众号"
                 sizes="900px"
