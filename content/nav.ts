@@ -796,6 +796,28 @@ export interface NavPart {
 }
 export const NAV_DATA: NavPart[] = [
   {
+    title: 'NPM 包',
+    sections: [
+      {
+        title: 'NPM 网站',
+        items: [
+          {
+            title: 'npmjs.com',
+            desc: 'npm 生态系统的中心枢纽,为开发者提供了搜索、发布和管理 npm 包的便利入口',
+            icon: 'npmjs.png',
+            link: 'https://www.npmjs.com/',
+          },
+          {
+            title: 'npm trends',
+            desc: '一个 npm 包使用趋势分析平台',
+            icon: 'npm_trends.png',
+            link: 'https://npmtrends.com/',
+          },
+        ],
+      },
+    ],
+  },
+  {
     title: 'React 生态',
     items: [
       {
@@ -815,12 +837,12 @@ export const NAV_DATA: NavPart[] = [
             icon: 'nextjs.png',
             link: 'https://nextjs.org/',
           },
-          // {
-          //   title: 'Gatsby',
-          //   desc: '基于 React 的静态站点生成框架',
-          //   icon: 'https://www.gatsbyjs.com/favicon.ico',
-          //   link: 'https://www.gatsbyjs.com/',
-          // },
+          {
+            title: 'Gatsby',
+            desc: '基于 React 的静态站点生成框架',
+            icon: 'gatsby.png',
+            link: 'https://www.gatsbyjs.com/docs',
+          },
           {
             title: 'React Native',
             desc: '用于构建移动端原生应用的 React 框架',
@@ -888,23 +910,23 @@ export const NAV_DATA: NavPart[] = [
       },
     ],
     sections: [
-      // {
-      //   title: 'Vue 状态管理',
-      //   items: [
-      //     {
-      //       title: 'Vuex',
-      //       desc: 'Vue.js 的状态管理模式与库',
-      //       icon: 'https://vuex.vuejs.org/favicon.ico',
-      //       link: 'https://vuex.vuejs.org/',
-      //     },
-      //     {
-      //       title: 'Pinia',
-      //       desc: 'Vue 的轻量级状态管理库',
-      //       icon: 'https://pinia.vuejs.org/logo.svg',
-      //       link: 'https://pinia.vuejs.org/',
-      //     },
-      //   ],
-      // },
+      {
+        title: 'Vue 状态管理',
+        items: [
+          {
+            title: 'Pinia',
+            desc: '符合直觉的 Vue.js 状态管理库',
+            icon: 'pinia.png',
+            link: 'https://pinia.vuejs.org/',
+          },
+          {
+            title: 'Vuex',
+            desc: '一个专为 Vue.js 应用程序开发的状态管理模式 + 库',
+            icon: 'vue.svg',
+            link: 'https://vuex.vuejs.org/',
+          },
+        ],
+      },
       // {
       //   title: 'Vue 路由',
       //   items: [
