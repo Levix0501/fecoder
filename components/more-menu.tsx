@@ -69,8 +69,8 @@ export function MoreMenu() {
 
           {type === 'support' && (
             <div className="text-slate-600">
-              <p>1. 您的赞助将用于本站维护（服务器、CDN等）</p>
-              <p>2. 学生党禁止打赏</p>
+              <p>您的赞助将用于维护本站（服务器、CDN等），感谢您的支持</p>
+
               <Image
                 src="/contact/support.jpg"
                 width={200}
