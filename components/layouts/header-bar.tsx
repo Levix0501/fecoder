@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { siteConfig } from '@/site-config';
 import { Navbar } from './navbar';
 import Logo from '../logo';
+import { MoreMenu } from '../more-menu';
 
 export const HeaderBar = () => {
   return (
@@ -15,6 +16,8 @@ export const HeaderBar = () => {
         </Link>
 
         <Navbar />
+
+        <MoreMenu />
       </nav>
     </header>
   );
