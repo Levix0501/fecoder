@@ -8,6 +8,7 @@ import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import BaiduAnalytics from '@/components/baidu-analytics';
 import Head from 'next/head';
+import { absoluteUrl } from '@/lib/utils';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,6 +26,29 @@ export const metadata: Metadata = {
         url: '/logo-dark.svg',
       },
     ],
+  },
+  keywords: siteConfig.keywords,
+  openGraph: {
+    title: siteConfig.name,
+    description: siteConfig.description,
+    type: 'website',
+    url: absoluteUrl('/'),
+
+    // images: [
+    //   {
+    //     url: siteConfig.ogImage,
+    //     width: 1200,
+    //     height: 630,
+    //     alt: siteConfig.name,
+    //   },
+    // ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+
+    // images: [siteConfig.ogImage],
   },
 };
 
