@@ -7,7 +7,7 @@ export default function Home() {
       <section className="pb-10 border-b border-[var(--accents-2)]">
         <div className="container">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            <CardLink href="/nav" target="_blank" className="p-6">
+            <CardLink href="/nav" className="p-6">
               <div className="flex items-center space-x-2">
                 <Image src={`/home/nav.png`} alt="" width={64} height={64} />
 
@@ -19,7 +19,7 @@ export default function Home() {
                 轻松找到前端开发学习资料、开发工具、以及社区资源等
               </p>
             </CardLink>
-            <CardLink href="/" target="_blank" className="p-6">
+            <CardLink href="/code-fun" className="p-6">
               <div className="flex items-center space-x-2">
                 <Image src={`/home/fun.png`} alt="" width={64} height={64} />
 
