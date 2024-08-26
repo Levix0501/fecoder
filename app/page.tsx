@@ -1,9 +1,19 @@
+'use client';
 import CardLink from '@/components/card-link/card-link';
 import Image from 'next/image';
+import Beginner from '@/content/mmd/beginner.svg';
 
 export default function Home() {
   return (
     <main className="py-10">
+      {/* <div
+        onClick={(e) => {
+          console.log((e.target as HTMLElement).parentElement);
+        }}
+      >
+        <Beginner />
+      </div> */}
+
       <section className="pb-10 border-b border-[var(--accents-2)]">
         <div className="container">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
