@@ -20,7 +20,7 @@ export function Mdx({ code }: MdxProps) {
         <div className="relative">
           <pre
             className={cn(
-              'relative mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900',
+              'relative mb-4 mt-6 max-h-[500px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900',
               className
             )}
             {...props}

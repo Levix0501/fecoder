@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import DetailLayout from '../_components/detail-layout';
 import dayjs from 'dayjs';
+import { Card, CardContent } from '@/components/ui/card';
 
 interface CodeFunDetailPageProps {
   params: {
@@ -96,12 +97,16 @@ const CodeFunDetailPage = ({ params: { slug } }: CodeFunDetailPageProps) => {
       ) : (
         <>
           {!doc.mobile && <p className="text-slate-400">建议在电脑端预览</p>}
-          <div className="w-full pb-[56%] relative rounded-md overflow-hidden">
-            <iframe
-              src={`/code-fun/${slug[0]}.html`}
-              className="absolute w-full h-full"
-            ></iframe>
-          </div>
+          <Card>
+            <CardContent className="p-0">
+              <div className="w-full pb-[calc(100vh-15rem)] relative rounded-md overflow-hidden">
+                <iframe
+                  src={`/code-fun/${slug[0]}.html`}
+                  className="absolute w-full h-full"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
         </>
       )}
     </DetailLayout>
