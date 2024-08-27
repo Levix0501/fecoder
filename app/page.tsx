@@ -1,22 +1,30 @@
-'use client';
 import CardLink from '@/components/card-link/card-link';
 import Image from 'next/image';
-import Beginner from '@/content/mmd/beginner.svg';
 
 export default function Home() {
   return (
     <main className="py-10">
-      {/* <div
-        onClick={(e) => {
-          console.log((e.target as HTMLElement).parentElement);
-        }}
-      >
-        <Beginner />
-      </div> */}
-
       <section className="pb-10 border-b border-[var(--accents-2)]">
         <div className="container">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <CardLink href="/roadmap" className="p-6">
+              <div className="flex items-center space-x-2">
+                <Image
+                  src={`/home/roadmap.png`}
+                  alt=""
+                  width={64}
+                  height={64}
+                />
+
+                <h3 className="text-[#0074de] text-lg font-medium group-hover:text-[var(--ds-gray-1000)]">
+                  学习路线
+                </h3>
+              </div>
+              <p className="text-sm text-[var(--ds-gray-900)] font-normal">
+                为每个学习节点提供丰富的文章、视频、网站等资源，助你全面掌握前端开发，适合中国宝宝体质的
+                Roadmap
+              </p>
+            </CardLink>
             <CardLink href="/nav" className="p-6">
               <div className="flex items-center space-x-2">
                 <Image src={`/home/nav.png`} alt="" width={64} height={64} />

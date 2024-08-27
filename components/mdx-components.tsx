@@ -4,6 +4,7 @@ import { useMDXComponent } from 'next-contentlayer2/hooks';
 
 import { CopyButton } from './copy-button';
 import { cn } from '@/lib/utils';
+import RoadmapLinkItem from './roadmap-link-item';
 
 interface MdxProps {
   code: string;
@@ -11,6 +12,7 @@ interface MdxProps {
 
 export function Mdx({ code }: MdxProps) {
   const components = {
+    LinkItem: (props: any) => <RoadmapLinkItem {...props} />,
     pre: ({
       className,
       __raw__,
