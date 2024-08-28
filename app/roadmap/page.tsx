@@ -48,7 +48,7 @@ const RoadmapPage = () => {
         学习路线
       </h1>
       <p className="text-[var(--tw-prose-body)]">适合中国宝宝体质的 Roadmap</p>
-      <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         <CardLink href="/roadmap/frontend-beginner" className="p-6">
           <div className="flex items-center space-x-2">
             <h3 className="text-[#0074de] text-lg font-medium group-hover:text-[var(--ds-gray-1000)]">

@@ -14,6 +14,7 @@ import {
 import { Button } from '../ui/button';
 import { AlignRight } from 'lucide-react';
 import { useState } from 'react';
+import MarketingContent from '../marketing/marketing-content';
 
 const navArr = [
   {
@@ -81,7 +82,7 @@ export const MobileNav = () => {
             <AlignRight size={20} />
           </Button>
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent className="!outline-none">
           <SheetHeader>
             <SheetTitle></SheetTitle>
             <SheetDescription></SheetDescription>
@@ -108,6 +109,10 @@ export const MobileNav = () => {
               </div>
             );
           })}
+
+          <div className="my-3 border-t border-[var(--accents-2)]"></div>
+
+          <MarketingContent />
         </SheetContent>
       </Sheet>
     </div>

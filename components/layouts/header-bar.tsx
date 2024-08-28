@@ -21,7 +21,7 @@ export const HeaderBar = () => {
 
         <div className="flex">
           <MobileNav />
-          <MoreMenu />
+          {/* <MoreMenu /> */}
         </div>
       </nav>
     </header>

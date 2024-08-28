@@ -9,6 +9,7 @@ import '../styles/globals.css';
 import BaiduAnalytics from '@/components/baidu-analytics';
 import Head from 'next/head';
 import { absoluteUrl } from '@/lib/utils';
+import MainAsideLayout from '@/components/layouts/main-aside-layout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -64,7 +65,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <HeaderBar />
-        {children}
+        <MainAsideLayout>{children}</MainAsideLayout>
         <Footer />
         <NprogressBar />
       </body>

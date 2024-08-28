@@ -6,9 +6,9 @@ export default function Layout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="container py-6 lg:py-8">
+    <>
       {children}
       {modal}
-    </main>
+    </>
   );
 }

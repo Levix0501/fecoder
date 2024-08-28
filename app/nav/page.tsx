@@ -43,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const NavPage = () => {
   return (
-    <main className="container py-10">
+    <>
       <h1 className="text-[var(--ds-gray-1000)] mb-8 font-semibold text-4xl">
         前端导航
       </h1>
@@ -66,7 +66,7 @@ const NavPage = () => {
           ))}
         </section>
       ))}
-    </main>
+    </>
   );
 };
 
