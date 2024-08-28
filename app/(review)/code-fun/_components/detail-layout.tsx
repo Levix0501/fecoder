@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import CodeFunBreadcrumb from './breadcrumb';
 import Navigation from './navigation';
-import { Waline } from '@/components/waline';
 
 const DetailLayout = ({
   children,
