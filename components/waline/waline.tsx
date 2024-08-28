@@ -23,7 +23,9 @@ const _Waline = (props: WalineOptions) => {
       el: containerRef.current,
       serverURL: process.env.NEXT_PUBLIC_WALINE_SERVER_URL!,
       copyright: false,
-      login: 'force',
+      login: 'disable',
+      meta: ['nick', 'mail'],
+      requiredMeta: ['nick', 'mail'],
     });
 
     return () => walineInstanceRef.current?.destroy();
