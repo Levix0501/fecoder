@@ -91,7 +91,7 @@ export const MobileNav = () => {
           {navArr.map(({ slug, href, label }) => {
             const isActive = slugs.includes(slug);
             return (
-              <div key={slug} className="py-3" onClick={() => setIsOpen(false)}>
+              <div key={slug} className="py-3">
                 <Link
                   href={href}
                   className={cn('transition-colors text-base text-accents-5', {
@@ -104,7 +104,7 @@ export const MobileNav = () => {
                       : void 0,
                   }}
                 >
-                  {label}
+                  <div onClick={() => setIsOpen(false)}>{label}</div>
                 </Link>
               </div>
             );

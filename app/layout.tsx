@@ -1,15 +1,13 @@
+import BaiduAnalytics from '@/components/baidu-analytics';
 import GoogleAnalytics from '@/components/google-analytics';
 import Footer from '@/components/layouts/footer';
 import { HeaderBar } from '@/components/layouts/header-bar';
 import { NprogressBar } from '@/components/nprogress-bar';
+import { absoluteUrl } from '@/lib/utils';
 import { siteConfig } from '@/site-config';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
-import BaiduAnalytics from '@/components/baidu-analytics';
-import Head from 'next/head';
-import { absoluteUrl } from '@/lib/utils';
-import MainAsideLayout from '@/components/layouts/main-aside-layout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -65,7 +63,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <HeaderBar />
-        <MainAsideLayout>{children}</MainAsideLayout>
+        {children}
         <Footer />
         <NprogressBar />
       </body>
