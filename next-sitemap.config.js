@@ -7,7 +7,7 @@ module.exports = {
     policies: [
       {
         userAgent: '*',
-        disallow: '/.anofwejkfl',
+        disallow: '/adminlc',
       },
     ],
   },
