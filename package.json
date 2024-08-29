@@ -12,8 +12,7 @@
     "build:diagrams": "node ./scripts/convertMermaid.js",
     "push": "dotenv -e .env.development -- prisma db push",
     "migrate": "dotenv -e .env.development -- prisma migrate dev",
-    "generate": "dotenv -e .env.development -- prisma generate",
-    "postinstall": "prisma generate"
+    "generate": "dotenv -e .env.development -- prisma generate"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
