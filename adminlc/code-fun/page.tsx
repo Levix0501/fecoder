@@ -2,24 +2,27 @@
 
 import { components } from '@/components/mdx-components';
 import { Textarea } from '@/components/ui/textarea';
+import request from '@/lib/request';
 import '@/styles/highlight.css';
 import { MDXRemote } from 'next-mdx-remote';
+import Image from 'next/image';
 import { useState } from 'react';
+import { decodeMdx } from './actions';
+import { Button, Upload } from 'antd';
+import { UploadCloud } from 'lucide-react';
 
 const AdminCodeFunPage = () => {
   const [content, setContent] = useState('');
   const [source, setSource] = useState<any>(null);
 
-  const onChange = (val: string) => {
+  const onChange = async (val: string) => {
     setContent(val);
-    fetch('/api/code-fun/preview', {
-      method: 'post',
-      body: JSON.stringify({ content: val }),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setSource(res);
-      });
+    // request.post('/api/code-fun/preview', { content: val }).then((res) => {
+    //   setSource(res);
+    // });
+    decodeMdx(val).then((res) => {
+      setSource(res);
+    });
   };
 
   return (
@@ -38,6 +41,7 @@ const AdminCodeFunPage = () => {
             <div>desc: {source.frontmatter.description}</div>
             <div>keywords: {source.frontmatter.keywords}</div>
             <div>date: {source.frontmatter.date}</div>
+            <div>mobile: {source.frontmatter.mobile}</div>
             <iframe srcDoc={source.html}></iframe>
             <MDXRemote {...source} components={components} />
           </>

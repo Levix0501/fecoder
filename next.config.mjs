@@ -32,6 +32,14 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'fecoder-1302080640.cos.ap-nanjing.myqcloud.com',
+      },
+    ],
+  },
+  transpilePackages: ['next-mdx-remote'],
 };
 
 const withMDX = createMDX({

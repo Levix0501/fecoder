@@ -13,8 +13,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Image {
+  id   Int    @id @default(autoincrement())
+  sign String @unique
+  url  String
+}
+
+model CodeFun {
+  id       Int      @id @default(autoincrement())
+  slug     String   @unique
+  title    String
+  desc     String
+  keywords String
+  date     DateTime
+  coverUrl String
+  content  String
+  htmlStr  String
 }

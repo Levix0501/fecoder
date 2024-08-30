@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const NotFoundPage = () => {
   return (
-    <main className="h-[calc(100vh-64px)] relative text-center">
+    <main className="h-screen relative text-center">
       <Image
         src="/404/bg_purple.png"
         fill

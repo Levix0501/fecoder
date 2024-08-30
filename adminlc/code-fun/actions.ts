@@ -1,11 +1,10 @@
+'use server';
 import { serialize } from 'next-mdx-remote/serialize';
-import { NextRequest, NextResponse } from 'next/server';
 import highlight from 'rehype-highlight';
 import { visit } from 'unist-util-visit';
 
-export async function POST(req: NextRequest) {
-  const data = await req.json();
-  const source = await serialize(data.content, {
+export const decodeMdx = async (content: string) => {
+  const source = await serialize(content, {
     parseFrontmatter: true,
     mdxOptions: {
       rehypePlugins: [
@@ -27,11 +26,9 @@ export async function POST(req: NextRequest) {
 
   // @ts-ignore
   const regex = /```html(.*?)```/s;
-  const match = data.content.match(regex);
+  const match = content.match(regex);
   if (match) {
     const html = match[1].trim();
-    return NextResponse.json({ ...source, html });
+    return { ...source, html };
   }
-
-  return NextResponse.json({});
-}
+};

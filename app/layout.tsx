@@ -62,9 +62,7 @@ export default function RootLayout({
         <BaiduAnalytics />
       </head>
       <body className={inter.className}>
-        <HeaderBar />
         {children}
-        <Footer />
         <NprogressBar />
       </body>
       <GoogleAnalytics />
