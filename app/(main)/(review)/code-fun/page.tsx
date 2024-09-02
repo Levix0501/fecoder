@@ -1,4 +1,5 @@
 import CardLink from '@/components/card-link/card-link';
+import to from '@/lib/await-to';
 import { prisma } from '@/prisma';
 import dayjs from 'dayjs';
 import Image from 'next/image';
@@ -6,11 +7,15 @@ import Image from 'next/image';
 export const revalidate = 4 * 3600; //
 
 const CodeFunPage = async () => {
-  const allCodeFuns = await prisma.codeFun.findMany({
-    orderBy: { date: 'desc' },
-    take: 100,
-    include: { cover: true },
-  });
+  const [error, data] = await to(
+    prisma.codeFun.findMany({
+      orderBy: { date: 'desc' },
+      take: 100,
+      include: { cover: true },
+    })
+  );
+
+  const allCodeFuns = data ?? [];
 
   return (
     <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">

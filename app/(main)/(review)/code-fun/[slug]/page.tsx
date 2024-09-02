@@ -70,8 +70,9 @@ export async function generateMetadata({
 export async function generateStaticParams(): Promise<
   CodeFunDetailPageProps['params'][]
 > {
-  const allCodeFuns = await prisma.codeFun.findMany({ take: 100 });
-  return allCodeFuns.map((codeFun) => ({ slug: codeFun.slug }));
+  // const allCodeFuns = await prisma.codeFun.findMany({ take: 100 });
+  // return allCodeFuns.map((codeFun) => ({ slug: codeFun.slug }));
+  return [];
 }
 
 const CodeFunDetailPage = async ({
