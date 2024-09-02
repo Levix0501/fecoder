@@ -47,7 +47,7 @@ export const Roadmap = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: './content',
-  documentTypes: [CodeFun, Roadmap],
+  documentTypes: [Roadmap],
   mdx: {
     rehypePlugins: [
       () => (tree) => {
@@ -65,25 +65,25 @@ export default makeSource({
     ],
   },
   onSuccess: async (getData) => {
-    const data = await getData();
-    console.log(data.allCodeFuns.length);
-    const publicDir = path.join(process.cwd(), 'public', 'code-fun');
-    await Promise.all(
-      data.allCodeFuns.map(async (doc) => {
-        const filePath = path.join(publicDir, `${doc.slugAsParams}.html`);
-        // @ts-ignore
-        const regex = /```html(.*?)```/s;
-        const match = doc.body.raw.match(regex);
-        if (match) {
-          const content = match[1].trim();
-          try {
-            fs.writeFileSync(filePath, content);
-            console.log(`Generated HTML file: ${filePath}`);
-          } catch (error) {
-            console.log(`error: ${error}`);
-          }
-        }
-      })
-    );
+    // const data = await getData();
+    // console.log(data.allCodeFuns.length);
+    // const publicDir = path.join(process.cwd(), 'public', 'code-fun');
+    // await Promise.all(
+    //   data.allCodeFuns.map(async (doc) => {
+    //     const filePath = path.join(publicDir, `${doc.slugAsParams}.html`);
+    //     // @ts-ignore
+    //     const regex = /```html(.*?)```/s;
+    //     const match = doc.body.raw.match(regex);
+    //     if (match) {
+    //       const content = match[1].trim();
+    //       try {
+    //         fs.writeFileSync(filePath, content);
+    //         console.log(`Generated HTML file: ${filePath}`);
+    //       } catch (error) {
+    //         console.log(`error: ${error}`);
+    //       }
+    //     }
+    //   })
+    // );
   },
 });

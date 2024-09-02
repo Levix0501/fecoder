@@ -11,24 +11,12 @@ export const SideMenu = () => {
 
   const items: ItemType<MenuItemType>[] = [
     {
-      key: 'assets',
-      label: '资源',
-      children: [
-        {
-          key: 'image',
-          label: <Link href="/adminlc/assets/image">图片</Link>,
-        },
-      ],
+      key: 'image',
+      label: <Link href="/adminlc/assets/image">图片管理</Link>,
     },
     {
       key: 'code-fun',
-      label: '趣玩前端',
-      children: [
-        {
-          key: 'list',
-          label: <Link href="/adminlc/code-fun/list">列表</Link>,
-        },
-      ],
+      label: <Link href="/adminlc/code-fun">趣玩前端</Link>,
     },
   ];
 

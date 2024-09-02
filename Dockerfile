@@ -7,7 +7,7 @@ COPY ./pnpm-lock.yaml ./
 RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm i 
-# RUN pnpm generate
+RUN pnpm generate
 
 
 FROM node:slim AS builder

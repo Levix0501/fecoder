@@ -1,7 +1,9 @@
 import { prisma } from '@/prisma';
-import { Button, Upload } from 'antd';
+import { Button, Image, Upload } from 'antd';
 import { UploadCloud } from 'lucide-react';
 import { z } from 'zod';
+import ImageItem from './_components/image-item';
+import ImageUploader from './_components/image-uploader';
 
 const ImageGalleryPage = async ({
   searchParams,
@@ -28,19 +30,13 @@ const ImageGalleryPage = async ({
   const list = await prisma.image.findMany({
     skip: (page - 1) * size,
     take: size,
-    orderBy: { id: 'desc' },
   });
+
   return (
-    <div>
-      <Upload
-        action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-        listType="picture"
-        defaultFileList={[]}
-      >
-        <Button type="primary" icon={<UploadCloud />}>
-          Upload
-        </Button>
-      </Upload>
+    <div className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {list.map((e) => (
+        <ImageItem key={e.id} {...e} />
+      ))}
     </div>
   );
 };

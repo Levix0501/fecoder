@@ -14,19 +14,30 @@ datasource db {
 }
 
 model Image {
-  id   Int    @id @default(autoincrement())
-  sign String @unique
-  url  String
+  id         String    @id @unique @default(cuid()) @db.VarChar(255)
+  sign       String    @unique
+  suffix     String
+  url        String
+  width      Int
+  height     Int
+  createTime DateTime
+  updateTime DateTime
+  CodeFun    CodeFun[]
 }
 
 model CodeFun {
-  id       Int      @id @default(autoincrement())
-  slug     String   @unique
-  title    String
-  desc     String
-  keywords String
-  date     DateTime
-  coverUrl String
-  content  String
-  htmlStr  String
+  id           String   @id @unique @default(cuid()) @db.VarChar(255)
+  slug         String   @unique
+  content      String   @db.LongText
+  title        String
+  desc         String   @db.Text
+  keywords     String   @db.Text
+  date         DateTime
+  isResponsive Boolean
+  cover        Image    @relation(fields: [imageId], references: [id])
+  htmlStr      String   @db.LongText
+  status       Int
+  createTime   DateTime
+  updateTime   DateTime
+  imageId      String   @db.VarChar(255)
 }
