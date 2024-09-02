@@ -30,6 +30,7 @@ const ImageGalleryPage = async ({
   const list = await prisma.image.findMany({
     skip: (page - 1) * size,
     take: size,
+    orderBy: { createTime: 'desc' },
   });
 
   return (
