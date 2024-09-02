@@ -7,8 +7,6 @@ COPY ./pnpm-lock.yaml ./
 RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm i 
-RUN pnpm generate
-
 
 FROM node:slim AS builder
 WORKDIR /fecoder
@@ -16,6 +14,7 @@ COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
 RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
+RUN pnpm generate
 RUN pnpm build 
 
 

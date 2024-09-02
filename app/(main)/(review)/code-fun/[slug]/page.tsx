@@ -6,6 +6,8 @@ import DetailLayout from '../_components/detail-layout';
 import MdxRemoteServer from '@/components/mdx/mdx-remote-server';
 import CodeFunBreadcrumb from '../_components/breadcrumb';
 import Navigation from '../_components/navigation';
+import { Metadata } from 'next';
+import { absoluteUrl } from '@/lib/utils';
 
 interface CodeFunDetailPageProps {
   params: {
@@ -27,61 +29,50 @@ interface CodeFunDetailPageProps {
 //   return doc;
 // }
 
-// export async function generateMetadata({
-//   params: { slug },
-// }: CodeFunDetailPageProps): Promise<Metadata> {
-//   const doc = getCodeFunDocFromSlug(slug);
+export async function generateMetadata({
+  params: { slug },
+}: CodeFunDetailPageProps): Promise<Metadata> {
+  const codeFun = await prisma.codeFun.findUnique({ where: { slug } });
 
-//   if (!doc) {
-//     return {};
-//   }
+  if (!codeFun) {
+    return {};
+  }
 
-//   return {
-//     title: doc.title + ' - 前端嘛',
-//     description: doc.description,
-//     keywords: doc.keywords,
-//     openGraph: {
-//       title: doc.title,
-//       description: doc.description,
-//       type: 'article',
-//       url: absoluteUrl(doc.slug),
+  return {
+    title: codeFun.title + ' - 前端嘛',
+    description: codeFun.desc,
+    keywords: codeFun.keywords,
+    openGraph: {
+      title: codeFun.title,
+      description: codeFun.desc,
+      type: 'article',
+      url: absoluteUrl(codeFun.slug),
 
-//       // images: [
-//       //   {
-//       //     url: siteConfig.ogImage,
-//       //     width: 1200,
-//       //     height: 630,
-//       //     alt: siteConfig.name,
-//       //   },
-//       // ],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title: doc.title,
-//       description: doc.description,
+      // images: [
+      //   {
+      //     url: siteConfig.ogImage,
+      //     width: 1200,
+      //     height: 630,
+      //     alt: siteConfig.name,
+      //   },
+      // ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: codeFun.title,
+      description: codeFun.desc,
 
-//       // images: [siteConfig.ogImage],
-//     },
-//   };
-// }
+      // images: [siteConfig.ogImage],
+    },
+  };
+}
 
-// export async function generateStaticParams(): Promise<
-//   CodeFunDetailPageProps['params'][]
-// > {
-//   return allCodeFuns
-//     .map((doc) => [
-//       {
-//         slug: doc.slugAsParams.split('/'),
-//       },
-//       {
-//         slug: [...doc.slugAsParams.split('/'), 'preview'],
-//       },
-//       {
-//         slug: [...doc.slugAsParams.split('/'), 'doc'],
-//       },
-//     ])
-//     .flat();
-// }
+export async function generateStaticParams(): Promise<
+  CodeFunDetailPageProps['params'][]
+> {
+  const allCodeFuns = await prisma.codeFun.findMany({ take: 100 });
+  return allCodeFuns.map((codeFun) => ({ slug: codeFun.slug }));
+}
 
 const CodeFunDetailPage = async ({
   params: { slug },
