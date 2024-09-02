@@ -1,5 +1,5 @@
 
-FROM node:slim AS dependencies
+FROM node:latest AS dependencies
 # RUN apt-get update && apt-get install -y libc6
 WORKDIR /fecoder
 COPY ./package.json ./
@@ -8,7 +8,7 @@ RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install pnpm -g
 RUN pnpm i 
 
-FROM node:slim AS builder
+FROM node:latest AS builder
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
@@ -18,7 +18,7 @@ RUN pnpm generate
 RUN pnpm build 
 
 
-FROM node:slim AS runner
+FROM node:latest AS runner
 WORKDIR /fecoder
 ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=builder /fecoder/public ./standalone/public
