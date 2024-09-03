@@ -9,6 +9,8 @@ RUN npm install pnpm -g
 RUN pnpm i 
 
 FROM node:slim AS builder
+RUN apt update
+RUN apt install openssl -y
 WORKDIR /fecoder
 COPY --from=dependencies /fecoder/node_modules ./node_modules
 COPY . .
@@ -27,6 +29,7 @@ COPY --from=builder /fecoder/.next/static ./standalone/.next/static
 RUN ls ./standalone/node_modules
 EXPOSE 3000
 ENV PORT 3000
+ENV HOSTNAME "0.0.0.0"
 CMD node ./standalone/server.js
 
 
