@@ -58,14 +58,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh">
-      <head>
-        <BaiduAnalytics />
-      </head>
+      <head>{/* <BaiduAnalytics /> */}</head>
       <body className={inter.className}>
         {children}
         <NprogressBar />
       </body>
-      <GoogleAnalytics />
+      {/* <GoogleAnalytics /> */}
     </html>
   );
 }
