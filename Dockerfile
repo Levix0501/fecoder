@@ -21,6 +21,8 @@ RUN pnpm build
 
 
 FROM node:slim AS runner
+RUN apt update
+RUN apt install openssl -y
 WORKDIR /fecoder
 ENV NEXT_TELEMETRY_DISABLED 1
 COPY --from=builder /fecoder/public ./standalone/public
