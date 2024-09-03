@@ -36,17 +36,27 @@ const CodeFunTable = () => {
     pageSize: 20,
     current: 1,
   });
-  const { isLoading, data } = useSWR('/admin/code-fun', () =>
-    fetchCodeFuns(pagination)
+  const { isLoading, data } = useSWR(
+    '/admin/code-fun',
+    () => fetchCodeFuns(pagination),
+    {
+      onSuccess(data, key, config) {
+        console.log(data);
+        if (data) {
+          setPagination({ ...pagination, total: data[1] });
+        }
+      },
+    }
   );
 
   return (
     <div className="mt-4">
       <Table
+        rowKey="id"
         loading={isLoading}
         columns={columns}
         pagination={pagination}
-        dataSource={data}
+        dataSource={data ? data[0] : []}
         onChange={(e) => setPagination(e)}
       />
     </div>

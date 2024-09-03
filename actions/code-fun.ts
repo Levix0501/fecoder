@@ -45,11 +45,14 @@ export const fetchCodeFuns = async ({
   pageSize = 20,
   current = 1,
 }: TablePaginationConfig) =>
-  prisma.codeFun.findMany({
-    skip: (current - 1) * pageSize,
-    take: pageSize,
-    orderBy: { createTime: 'desc' },
-  });
+  Promise.all([
+    prisma.codeFun.findMany({
+      skip: (current - 1) * pageSize,
+      take: pageSize,
+      orderBy: { createTime: 'desc' },
+    }),
+    prisma.codeFun.count(),
+  ]);
 
 export const fetchCodeFunById = async (id: string) =>
   prisma.codeFun.findUnique({ where: { id } });
