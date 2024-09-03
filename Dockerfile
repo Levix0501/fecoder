@@ -31,7 +31,7 @@ COPY --from=builder /fecoder/.next/static ./standalone/.next/static
 RUN ls ./standalone/node_modules
 EXPOSE 3000
 ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+# ENV HOSTNAME "0.0.0.0"
 CMD node ./standalone/server.js
 
 
