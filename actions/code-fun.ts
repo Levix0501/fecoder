@@ -2,6 +2,7 @@
 import { serializeOptions } from '@/components/mdx/serialize-options';
 import { prisma } from '@/prisma';
 import { Prisma } from '@prisma/client';
+import { TablePaginationConfig } from 'antd';
 import { serialize } from 'next-mdx-remote/serialize';
 
 export const decodeMdx = async (content: string) => {
@@ -29,3 +30,26 @@ export const createCodeFun = async (data: Prisma.CodeFunCreateInput) => {
 
   await prisma.codeFun.create({ data });
 };
+
+export const updateCodeFun = async (
+  data: Prisma.CodeFunUpdateInput,
+  id: string
+) => {
+  const codeFun = await prisma.codeFun.update({
+    data,
+    where: { id },
+  });
+};
+
+export const fetchCodeFuns = async ({
+  pageSize = 20,
+  current = 1,
+}: TablePaginationConfig) =>
+  prisma.codeFun.findMany({
+    skip: (current - 1) * pageSize,
+    take: pageSize,
+    orderBy: { createTime: 'desc' },
+  });
+
+export const fetchCodeFunById = async (id: string) =>
+  prisma.codeFun.findUnique({ where: { id } });
