@@ -37,7 +37,7 @@ const CodeFunTable = () => {
     current: 1,
   });
   const { isLoading, data } = useSWR(
-    '/admin/code-fun',
+    [pagination.pageSize, pagination.current],
     () => fetchCodeFuns(pagination),
     {
       onSuccess(data, key, config) {
