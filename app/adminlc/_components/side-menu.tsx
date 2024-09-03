@@ -11,6 +11,10 @@ export const SideMenu = () => {
 
   const items: ItemType<MenuItemType>[] = [
     {
+      key: 'revalidate',
+      label: <Link href="/adminlc/revalidate">revalidate</Link>,
+    },
+    {
       key: 'image',
       label: <Link href="/adminlc/assets/image">图片管理</Link>,
     },
