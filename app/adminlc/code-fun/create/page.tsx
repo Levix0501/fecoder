@@ -58,6 +58,7 @@ const AdminCodeFunCreatePage = () => {
                   status: 0,
                   createTime: dayjs().toISOString(),
                   updateTime: dayjs().toISOString(),
+                  author: { connect: { name: '趣玩前端' } },
                 });
 
                 location.replace('/adminlc/code-fun');

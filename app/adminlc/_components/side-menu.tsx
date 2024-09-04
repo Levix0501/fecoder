@@ -15,6 +15,10 @@ export const SideMenu = () => {
       label: <Link href="/adminlc/revalidate">revalidate</Link>,
     },
     {
+      key: 'article',
+      label: <Link href="/adminlc/article">文章管理</Link>,
+    },
+    {
       key: 'image',
       label: <Link href="/adminlc/assets/image">图片管理</Link>,
     },

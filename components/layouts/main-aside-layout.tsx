@@ -3,11 +3,13 @@ import MarketingContent from '../marketing/marketing-content';
 
 const MainAsideLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <main className="py-6 lg:py-8 container sm:flex gap-5">
-      <div className="flex-1">{children}</div>
+    <main className="py-6 lg:py-8 container sm:flex justify-center gap-5">
+      <div>{children}</div>
 
-      <aside className="hidden sm:block w-[260px]">
-        <MarketingContent />
+      <aside className="hidden md:block w-[260px]">
+        <div className="sticky top-[5.5rem] lg:top-24">
+          <MarketingContent />
+        </div>
       </aside>
     </main>
   );

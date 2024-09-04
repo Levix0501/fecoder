@@ -4,6 +4,7 @@ import { prisma } from '@/prisma';
 import { Prisma } from '@prisma/client';
 import { TablePaginationConfig } from 'antd';
 import { serialize } from 'next-mdx-remote/serialize';
+import { generateArticleByCodeFun } from './article';
 
 export const decodeMdx = async (content: string) => {
   const source = await serialize(content, serializeOptions);
@@ -28,7 +29,8 @@ export const createCodeFun = async (data: Prisma.CodeFunCreateInput) => {
     throw new Error('slug 已存在！');
   }
 
-  await prisma.codeFun.create({ data });
+  const newCodeFun = await prisma.codeFun.create({ data });
+  await generateArticleByCodeFun(newCodeFun.id);
 };
 
 export const updateCodeFun = async (

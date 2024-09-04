@@ -24,6 +24,31 @@ model Image {
   createTime DateTime
   updateTime DateTime
   CodeFun    CodeFun[]
+  Article    Article[]
+  Author     Author[]
+}
+
+model Author {
+  id      String    @id @unique @default(cuid()) @db.VarChar(255)
+  avatar  Image     @relation(fields: [imageId], references: [id])
+  imageId String    @db.VarChar(255)
+  name    String    @unique
+  CodeFun CodeFun[]
+  Article Article[]
+}
+
+model Article {
+  id         String   @id @unique @default(cuid()) @db.VarChar(255)
+  slug       String   @unique
+  title      String
+  desc       String?  @db.Text
+  cover      Image?   @relation(fields: [imageId], references: [id])
+  imageId    String?  @db.VarChar(255)
+  status     Int
+  createTime DateTime
+  updateTime DateTime
+  author     Author   @relation(fields: [authorId], references: [id])
+  authorId   String   @db.VarChar(255)
 }
 
 model CodeFun {
@@ -41,4 +66,6 @@ model CodeFun {
   createTime   DateTime
   updateTime   DateTime
   imageId      String   @db.VarChar(255)
+  author       Author   @relation(fields: [authorId], references: [id])
+  authorId     String   @db.VarChar(255)
 }
