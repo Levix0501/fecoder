@@ -4,12 +4,19 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import RelativeTime from './_components/relative-time';
 import Link from 'next/link';
+import to from '@/lib/await-to';
+
+export const revalidate = 3600;
 
 export default async function Home() {
-  const articles = await prisma.article.findMany({
-    orderBy: { createTime: 'desc' },
-    include: { cover: true, author: { include: { avatar: true } } },
-  });
+  const [err, data] = await to(
+    prisma.article.findMany({
+      orderBy: { createTime: 'desc' },
+      include: { cover: true, author: { include: { avatar: true } } },
+    })
+  );
+
+  const articles = data ?? [];
 
   return (
     <MainAsideLayout>
