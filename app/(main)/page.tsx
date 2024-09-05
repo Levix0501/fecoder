@@ -65,23 +65,32 @@ export default async function Home() {
             <article className="flex flex-col gap-2 text-base text-[#232323] pb-2">
               <div className="bg-[#eee] mb-1 h-[1px]"></div>
               <div className="flex gap-3">
-                <div className="w-[54px] h-[54px] flex justify-center items-center rounded-full">
-                  <Image
-                    src={article.author.avatar.url}
-                    width={48}
-                    height={48}
-                    alt="avatar"
-                  />
+                <div>
+                  <Link href={article.author.homepage}>
+                    <div className="w-[54px] h-[54px] flex justify-center items-center rounded-full">
+                      <Image
+                        src={article.author.avatar.url}
+                        width={48}
+                        height={48}
+                        alt="avatar"
+                      />
+                    </div>
+                  </Link>
                 </div>
 
                 <div className="flex-1">
-                  <Link href={article.slug}>
-                    <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center">
+                    <Link
+                      href={article.author.homepage}
+                      className="px-2 -mx-2 hover:bg-[#f2f2f2] rounded-full"
+                    >
                       <span className="font-bold">{article.author.name}</span>
+                    </Link>
 
-                      <RelativeTime dateTime={article.createTime} />
-                    </div>
+                    <RelativeTime dateTime={article.createTime} />
+                  </div>
 
+                  <Link href={article.slug}>
                     <h2 className="my-1">{article.title}</h2>
 
                     <p>{article.desc}</p>

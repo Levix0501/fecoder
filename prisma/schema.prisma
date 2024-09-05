@@ -29,12 +29,13 @@ model Image {
 }
 
 model Author {
-  id      String    @id @unique @default(cuid()) @db.VarChar(255)
-  avatar  Image     @relation(fields: [imageId], references: [id])
-  imageId String    @db.VarChar(255)
-  name    String    @unique
-  CodeFun CodeFun[]
-  Article Article[]
+  id       String    @id @unique @default(cuid()) @db.VarChar(255)
+  avatar   Image     @relation(fields: [imageId], references: [id])
+  imageId  String    @db.VarChar(255)
+  name     String    @unique
+  homepage String    @unique
+  CodeFun  CodeFun[]
+  Article  Article[]
 }
 
 model Article {

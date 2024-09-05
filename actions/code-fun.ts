@@ -29,8 +29,7 @@ export const createCodeFun = async (data: Prisma.CodeFunCreateInput) => {
     throw new Error('slug 已存在！');
   }
 
-  const newCodeFun = await prisma.codeFun.create({ data });
-  await generateArticleByCodeFun(newCodeFun.id);
+  await prisma.codeFun.create({ data });
 };
 
 export const updateCodeFun = async (

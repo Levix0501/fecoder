@@ -21,6 +21,10 @@ export const generate = async () => {
   //   }
   // }
   // console.log(await prisma.article.findMany({ take: 100 }));
+  // await prisma.author.update({
+  //   where: { id: 'cm0n66h0m0002a21dmapg4wwr' },
+  //   data: { homepage: '/code-fun' },
+  // });
 };
 
 export const generateArticleByCodeFun = async (codeFunId: string) => {

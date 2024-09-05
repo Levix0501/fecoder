@@ -1,8 +1,9 @@
 'use client';
 
+import { generateArticleByCodeFun } from '@/actions/article';
 import { fetchCodeFuns } from '@/actions/code-fun';
 import { CodeFun } from '@prisma/client';
-import { Space, Table, TablePaginationConfig, TableProps } from 'antd';
+import { Button, Space, Table, TablePaginationConfig, TableProps } from 'antd';
 import Link from 'next/link';
 import { useState } from 'react';
 import useSWR from 'swr';
@@ -12,6 +13,10 @@ const columns: TableProps<CodeFun>['columns'] = [
   {
     dataIndex: 'slug',
     title: 'slug',
+  },
+  {
+    dataIndex: 'title',
+    title: 'title',
   },
   {
     title: 'Action',
@@ -24,6 +29,9 @@ const columns: TableProps<CodeFun>['columns'] = [
         <Link href={`/adminlc/code-fun/edit/${record.id}`} target="_blank">
           编辑
         </Link>
+        <Button onClick={() => generateArticleByCodeFun(record.id)}>
+          生成 article
+        </Button>
       </Space>
     ),
   },

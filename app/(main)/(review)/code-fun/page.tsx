@@ -12,34 +12,31 @@ const CodeFunPage = async () => {
       orderBy: { date: 'desc' },
       take: 100,
       include: { cover: true },
+      where: {
+        date: { lt: dayjs(dayjs().valueOf() + 4 * 3600 * 1000).toDate() },
+      },
     })
   );
-
+  console.log(error);
   const allCodeFuns = data ?? [];
 
   return (
     <div className="grid grid-cols-2 gap-4 sm:gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-      {allCodeFuns
-        .filter(
-          (doc) =>
-            dayjs(doc.date).valueOf() <= dayjs().valueOf() + 4 * 3600 * 1000
-        )
-        .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
-        .map((e) => (
-          <CardLink key={e.id} href={`/code-fun/${e.slug}`}>
-            <div className="relative pb-[58%]">
-              <Image
-                src={e.cover.url}
-                fill
-                alt={e.title}
-                className="object-cover"
-                sizes="650px"
-              />
-            </div>
+      {allCodeFuns.map((e) => (
+        <CardLink key={e.id} href={`/code-fun/${e.slug}`}>
+          <div className="relative pb-[58%]">
+            <Image
+              src={e.cover.url}
+              fill
+              alt={e.title}
+              className="object-cover"
+              sizes="650px"
+            />
+          </div>
 
-            <h2 className="p-2 text-slate-500 text-base">{e.title}</h2>
-          </CardLink>
-        ))}
+          <h2 className="p-2 text-slate-500 text-base">{e.title}</h2>
+        </CardLink>
+      ))}
     </div>
   );
 };
